@@ -2,168 +2,163 @@
 
 🎯 Overview
 
-Enterprise-grade data engineering platform built on Microsoft Azure
+* Enterprise-grade data engineering platform built on Microsoft Azure
 
-Designed for scalable ingestion, enrichment, transformation, and analytics delivery
+* Designed for scalable ingestion, enrichment, transformation, and analytics delivery
 
-Implements Medallion Architecture (Bronze, Silver, Gold)
+* Implements Medallion Architecture (Bronze, Silver, Gold)
 
-Supports multilingual data enrichment for global analytics
+* Supports multilingual data enrichment for global analytics
 
-Optimized for BI, reporting, and downstream data consumption
+* Optimized for BI, reporting, and downstream data consumption
 
 🏗️ Architecture Overview
+
+
 Data Flow
 
-HTTP / SQL Data Sources
+-HTTP / SQL Data Sources
 
-Azure Data Factory
+-Azure Data Factory
 
-Azure Data Lake Storage Gen2 (Bronze)
+-Azure Data Lake Storage Gen2 (Bronze)
 
-Azure Databricks
+-Azure Databricks
 
-Azure Data Lake Storage Gen2 (Silver and Gold)
+-Azure Data Lake Storage Gen2 (Silver and Gold)
 
-Azure Synapse Analytics
+-Azure Synapse Analytics
 
-BI Tools (Power BI, Tableau, Microsoft Fabric)
+-BI Tools (Power BI, Tableau, Microsoft Fabric)
 
-Reference Enrichment Flow
+-Reference Enrichment Flow
 
-MongoDB
+-MongoDB
 
-Azure Databricks
+-Azure Databricks
 
 🥉 Bronze Layer – Raw Data
 
-Stores source data exactly as received
+-Stores source data exactly as received
 
-No transformations or schema enforcement
+-No transformations or schema enforcement
 
-Supports replay, auditing, and traceability
+-Supports replay, auditing, and traceability
 
 Technologies
 
-Azure Data Factory
+-Azure Data Factory
 
-Azure Data Lake Storage Gen2
+-Azure Data Lake Storage Gen2
 
 🥈 Silver Layer – Cleansed and Enriched Data
 
-Applies data quality and standardization rules
+-Applies data quality and standardization rules
 
-Normalizes data types and handles null values
+-Normalizes data types and handles null values
 
-Removes duplicates where applicable
+-Removes duplicates where applicable
 
-Enriches datasets using reference lookups
+-Enriches datasets using reference lookups
 
-Translates product categories from Spanish/Portuguese to English
+-Translates product categories from Spanish/Portuguese to English
 
 Technologies
 
-Azure Databricks (Apache Spark)
+-Azure Databricks (Apache Spark)
 
-MongoDB (reference and translation store)
+-MongoDB (reference and translation store)
 
 🥇 Gold Layer – Analytics Ready Data
 
-Curated, business-aligned datasets
+-Curated, business-aligned datasets
 
-Stable schemas designed for analytics
+-Stable schemas designed for analytics
 
-Optimized for query performance
+-Optimized for query performance
 
 Consumers
 
-Azure Synapse Analytics
+-Azure Synapse Analytics
 
-Power BI
+-Power BI
 
-Tableau
-
-Microsoft Fabric
-
-Downstream APIs and ML workloads
+-Downstream APIs and ML workloads
 
 🌍 Data Enrichment Strategy
 
-Reference data stored in MongoDB
+-Reference data stored in MongoDB
 
-Translation mappings maintained for product categories
+-Translation mappings maintained for product categories
 
-Databricks joins transactional data with reference data
+-Databricks joins transactional data with reference data
 
-Enriched attributes persisted in Silver and Gold layers
+-Enriched attributes persisted in Silver and Gold layers
 
-Enables consistent, global-ready analytics dimensions
+-Enables consistent, global-ready analytics dimensions
 
 ⚙️ Core Platform Components
-Azure Data Factory
 
-Orchestrates ingestion pipelines
+-Azure Data Factory
 
-Handles HTTP and SQL-based sources
+-Orchestrates ingestion pipelines
 
-Populates the Bronze layer
+-Handles HTTP and SQL-based sources
 
-Azure Data Lake Storage Gen2
+-Populates the Bronze layer
 
-Centralized storage for Bronze, Silver, and Gold layers
+-Azure Data Lake Storage Gen2
 
-Secure and scalable data storage
+-Centralized storage for Bronze, Silver, and Gold layers
 
-Azure Databricks
+-Secure and scalable data storage
 
-Executes distributed transformations
+-Azure Databricks
 
-Applies cleansing and enrichment logic
+-Executes distributed transformations
 
-Writes curated datasets back to ADLS
+-Applies cleansing and enrichment logic
 
-MongoDB
+-Writes curated datasets back to ADLS
 
-Stores reference and translation datasets
+-MongoDB
 
-Supports enrichment during Silver processing
+-Stores reference and translation datasets
 
-Azure Synapse Analytics
+-Supports enrichment during Silver processing
 
-Provides analytical query layer
+-Azure Synapse Analytics
 
-Serves Gold datasets to BI tools
+-Provides analytical query layer
+
+-Serves Gold datasets to BI tools
 
 🧰 Technology Stack
 
-Azure Data Factory
+1. Azure Data Factory
 
-Azure Data Lake Storage Gen2
+2. Azure Data Lake Storage Gen2
 
-Azure Databricks (Apache Spark)
+3. Azure Databricks (Apache Spark)
 
-MongoDB
+4. MongoDB
 
-Azure Synapse Analytics
+5. Azure Synapse Analytics
 
-Power BI
+6. Power BI
 
-Tableau
+7. Python
 
-Microsoft Fabric
-
-Python
-
-PySpark
+8. PySpark
 
 ✅ Key Outcomes
 
-Production-aligned Medallion Architecture implementation
+-Production-aligned Medallion Architecture implementation
 
-Scalable ingestion and transformation pipelines
+-Scalable ingestion and transformation pipelines
 
-Multilingual data enrichment capability
+-Multilingual data enrichment capability
 
-Analytics-ready datasets
+-Analytics-ready datasets
 
 Cloud-native and extensible platform design
