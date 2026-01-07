@@ -1,107 +1,97 @@
 # Project-Brazilian-Ecommerce
 
-
-Enterprise Data Engineering Platform – Azure Medallion Architecture
-
-Executive Summary
-
-This repository contains an enterprise-style data engineering platform built to ingest, enrich, transform, and serve Brazilian E-commerce (OLIST) data using Azure-native services.
-The solution follows the Medallion Architecture (Bronze, Silver, Gold) to ensure data reliability, scalability, and analytics readiness.
-
-The platform supports batch ingestion from HTTP and SQL sources, distributed transformations, reference-based enrichment, and analytics consumption through Synapse and BI tools.
-
-Architecture Overview
-
-HTTP / SQL Sources
-        ↓
+Enterprise Data Engineering Platform using Azure Medallion Architecture
+________________________________________
+🎯 Overview
+•	Enterprise-grade data engineering platform built on Microsoft Azure
+•	Designed for scalable ingestion, enrichment, transformation, and analytics delivery
+•	Implements Medallion Architecture (Bronze, Silver, Gold)
+•	Supports multilingual data enrichment for global analytics
+•	Optimized for BI, reporting, and downstream data consumption
+________________________________________
+🏗️ Architecture Overview
+Data Flow
+•	HTTP / SQL Data Sources
+•	Azure Data Factory
+•	Azure Data Lake Storage Gen2 (Bronze)
+•	Azure Databricks
+•	Azure Data Lake Storage Gen2 (Silver and Gold)
+•	Azure Synapse Analytics
+•	BI Tools (Power BI, Tableau, Microsoft Fabric)
+Reference Enrichment Flow
+•	MongoDB
+•	Azure Databricks
+________________________________________
+🥉 Bronze Layer – Raw Data
+•	Stores source data exactly as received
+•	No transformations or schema enforcement
+•	Supports replay, auditing, and traceability
+Technologies
+•	Azure Data Factory
+•	Azure Data Lake Storage Gen2
+________________________________________
+🥈 Silver Layer – Cleansed and Enriched Data
+•	Applies data quality and standardization rules
+•	Normalizes data types and handles null values
+•	Removes duplicates where applicable
+•	Enriches datasets using reference lookups
+•	Translates product categories from Spanish/Portuguese to English
+Technologies
+•	Azure Databricks (Apache Spark)
+•	MongoDB (reference and translation store)
+________________________________________
+🥇 Gold Layer – Analytics Ready Data
+•	Curated, business-aligned datasets
+•	Stable schemas designed for analytics
+•	Optimized for query performance
+Consumers
+•	Azure Synapse Analytics
+•	Power BI
+•	Tableau
+•	Microsoft Fabric
+•	Downstream APIs and ML workloads
+________________________________________
+🌍 Data Enrichment Strategy
+•	Reference data stored in MongoDB
+•	Translation mappings maintained for product categories
+•	Databricks joins transactional data with reference data
+•	Enriched attributes persisted in Silver and Gold layers
+•	Enables consistent, global-ready analytics dimensions
+________________________________________
+⚙️ Core Platform Components
 Azure Data Factory
-        ↓
-ADLS Gen2 (Bronze)
-        ↓
-Azure Databricks
-        ↓
-ADLS Gen2 (Silver / Gold)
-        ↓
-Azure Synapse Analytics
-        ↓
-Power BI / Tableau / Fabric
-
-Medallion Architecture Implementation
-Bronze Layer – Raw Data
-
-Stores source data exactly as ingested
-
-No transformations or schema enforcement
-
-Supports replay, auditing, and traceability
-
-Technology:
-Azure Data Factory, ADLS Gen2
-
-Silver Layer – Cleansed & Enriched Data
-
-Data cleansing and normalization
-
-Deduplication and standardization
-
-Language enrichment using MongoDB
-
-Product categories translated from Spanish/Portuguese to English
-
-Technology:
-Azure Databricks (Spark), MongoDB
-
-Gold Layer – Analytics-Ready Data
-
-Curated, business-aligned datasets
-
-Optimized for analytical workloads
-
-Stable schemas for reporting and insights
-
-Consumers:
-Azure Synapse, Power BI, Tableau, Microsoft Fabric
-
-Data Enrichment Strategy
-
-Reference data is maintained in MongoDB and joined during Databricks processing to enrich transactional datasets.
-This includes Spanish-to-English translation of product categories, enabling global-ready analytics and consistent business dimensions.
-
-Core Platform Components
-
-Azure Data Factory
-Orchestrates ingestion from HTTP and SQL sources into the Bronze layer.
-
+•	Orchestrates ingestion pipelines
+•	Handles HTTP and SQL-based sources
+•	Populates the Bronze layer
 Azure Data Lake Storage Gen2
-Central storage for Bronze, Silver, and Gold datasets.
-
+•	Centralized storage for Bronze, Silver, and Gold layers
+•	Secure and scalable data storage
 Azure Databricks
-Performs distributed transformations and enrichment logic.
-
+•	Executes distributed transformations
+•	Applies cleansing and enrichment logic
+•	Writes curated datasets back to ADLS
 MongoDB
-Provides reference and translation lookup tables.
-
+•	Stores reference and translation datasets
+•	Supports enrichment during Silver processing
 Azure Synapse Analytics
-Serves curated data for analytical queries and BI consumption.
-
-Technology Stack
-
-Azure Data Factory
-Azure Data Lake Storage Gen2
-Azure Databricks (Apache Spark)
-MongoDB
-Azure Synapse Analytics
-Power BI / Tableau / Microsoft Fabric
-Python / PySpark
-
-Outcomes
-
-Production-aligned Medallion Architecture implementation
-
-Scalable ingestion and transformation design
-
-Multilingual data enrichment capability
-
-Analytics-ready datasets for enterprise reporting
-
-Cloud-native, extensible data platform
+•	Provides analytical query layer
+•	Serves Gold datasets to BI tools
+________________________________________
+🧰 Technology Stack
+•	Azure Data Factory
+•	Azure Data Lake Storage Gen2
+•	Azure Databricks (Apache Spark)
+•	MongoDB
+•	Azure Synapse Analytics
+•	Power BI
+•	Tableau
+•	Microsoft Fabric
+•	Python
+•	PySpark
+________________________________________
+✅ Key Outcomes
+•	Production-aligned Medallion Architecture implementation
+•	Scalable ingestion and transformation pipelines
+•	Multilingual data enrichment capability
+•	Analytics-ready datasets
+•	Cloud-native and extensible platform design
